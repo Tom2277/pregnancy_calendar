@@ -6,33 +6,12 @@
     [ng\:cloak], [ng-cloak], .ng-cloak {
       display: none;
     }
-    .thick {
-      font-weight: bold;
-    }
-    .full button span {
-      background-color: limegreen;
-      border-radius: 32px;
-      color: black;
-    }
-    .partially button span {
-      background-color: orange;
-      border-radius: 32px;
-      color: black;
-    }
-
     </style>
   </head>
   <body>
 
     
-
-
-<div class="disclaimer-sponsor">
-  For quick guesstimates only! Speak to a doctor ASAP to plan for healthy lives ahead
-</div>
-<div ng-controller="PregnancyCtrl" style="max-width: 1300px; margin-left: auto; margin-right: auto;">
-    
-
+<div ng-controller="PregnancyCtrl" class="main-pregnancy-application" >
   <div class="canvas-controls" >
     <canvas id="canvas" width="900" height="400" ></canvas>
     <div class="conception-calendar-container" style="display:inline-block;">
@@ -50,12 +29,12 @@
   </div>
 
   <div class="direction-box">
-    <label class="operating-instructions">The Months of your Pregnancy (based on chosen conception date)</label>
-    <label class="operating-instructions">See the height and weight of your baby at different points by clicking dates below.</label>
+    <label class="operating-instructions">The Months of your Pregnancy <small>(based on chosen conception date)</small></label>
+    <label class="operating-instructions">Click on dates below to see the baby's growth by week.</label>
   </div>
 
   <div class="pregnancy-strip-container">
-    <div ng-repeat="month in pregnancyMonths" style="display:inline-block; height:200px;" ng-init="fooIndex = $index">
+    <div ng-repeat="month in pregnancyMonths" style="display:inline-block; height:180px; margin-bottom: 0px;" ng-init="fooIndex = $index">
       <!-- <div class="pregancy-month-label" >Month {{$index}} </div> -->
       <uib-datepicker ng-model="month.dt" class="pregnancy-month well well-sm" ng-class-odd="'boy-odd'" datepicker-options="month.options" ></uib-datepicker>
     </div>
@@ -81,6 +60,23 @@
           <div class="weeks">Weeks 28 to Term</div> 
         </td>
       </tr>
+    </table> 
+
+
+    <table class="ad-pregnancy-strip-legend well">
+      <tr class="first-trimester">
+       <td> 
+        <div class="pregnancy-ad"> 
+
+          <div class="disposable-inner-ad" style="padding: 40px; font-size: 2.8em; color: goldenrod; font-style:oblique;"> 
+            Your Branding Here
+            <div style="font-size:.7em; font-style:italic;">...we try harder</div>
+          </div> 
+
+
+        </div>
+       </td>
+      </tr>
     </table>       
     <!-- <div class="pregnancy-ad well">
       a word from our sponsors
@@ -88,7 +84,14 @@
   </div>
 </div>
 
-<!-- <div class="right-side-ad-bar">could there be a big ad-bar here?</div> -->
+<!-- <div class="right-side-ad-bar">
+  <div> additional promotion</div>
+  <div>
+    visible on the right for wide displays or a banner beneath for displays under 1550 wide
+  </div>
+
+
+</div> -->
 
 
 
