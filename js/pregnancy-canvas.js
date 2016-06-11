@@ -175,9 +175,9 @@
       context.font = "22px Arial";
       context.fillStyle = "black";//"#0095DD";
       
-      context.fillText( GlobalWeeksElapsed + ((GlobalWeeksElapsed === 1) ? " Week Completed" : " Weeks Completed" ), 550, 40);
-      context.fillText( "Length: " + babyLength + " inches", 558, 70);
-      context.fillText(babyWeight, 610, 370);
+      context.fillText( GlobalWeeksElapsed + ((GlobalWeeksElapsed === 1) ? " Week Completed" : " Weeks Completed" ), 565, 40);
+      context.fillText( "Length: " + babyLength + " inches", 573, 70);
+      context.fillText(babyWeight, 611, 370);
     }
 
 
