@@ -30,7 +30,7 @@ app.controller('PregnancyCtrl', function ($scope, $rootScope, $timeout, $window)
   $scope.$watch('currentClick', function(){
     // console.log("current events are " + $scope.events)
     // canvas needs the number of weeks elapsed
-    $window.GlobalWeeksElapsed = weeksElapsed($rootScope.currentClick);
+    $window.GlobalWeeksElapsed = (weeksElapsed($rootScope.currentClick) < 44) ? weeksElapsed($rootScope.currentClick) : 43;
     console.table($scope.events);
     // console.log($window.currentWeek);
   })
