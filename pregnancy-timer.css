@@ -11,18 +11,17 @@
   }
 
   canvas{
-  width: 100vw;
-  max-width: 900px;
+    width: 100vw;
+    max-width: 900px;
   }
 
   .pregnancy-strip .btn-group-sm>.btn, .pregnancy-strip .btn-sm {
     padding: 1px 2px;
-    /*padding-top:3px;*/
     font-size: .6em;
     line-height: 1.5;
     border-radius: 3px;
-    /*background: pink;*/
   }
+
   .text-muted{
     color: #ccc;
   }
@@ -38,41 +37,39 @@
     color: blue;
     background-color: pink;
     background-image: none;
-    /*margin-bottom: 0px;
-    height: 168;*/
-   }
+  }
 
-   .pregnancy-month.well.boy-odd{
+  .pregnancy-month.well.boy-odd{
     background-color: skyblue;
-   }
+  }
 
-   .pregnancy-strip .pregnancy-conception button span{
+  .pregnancy-strip .pregnancy-conception button span{
     background-color: purple;
     color: white;
     padding: 0px;
-    font-size: 1.4em;
-   }
+    font-size: 1.3em;
+  }
 
-   .pregnancy-strip .pregnancy-conception button span .btn-sm{
+  .pregnancy-strip .pregnancy-conception button span .btn-sm{
     padding: 0px;
-   }
+  }
 
-   .pregnancy-strip .pregnancy-conception{
+  .pregnancy-strip .pregnancy-conception{
     /*border: 1px solid gold;*/
     padding: 0px;
     margin: 0px;
-   }
+  }
 
   .pregnancy-strip .pregnancy-due-date button span{
     background-color: yellow;
     color: black;
     padding: 0px;
-    font-size: 1.4em;
-   }
+    font-size: 1.3em;
+  }
 
   .pregnancy-strip .pregnancy-due-date button span .btn-sm{
     padding: 0px;
-   }
+  }
 
   .pregnancy-strip .pregnancy-due-date{
     /*border: 1px solid limegreen;*/
@@ -123,10 +120,11 @@
 
   .conception-date-due-date{
     font-weight: bolder;
-    color: yellow;
-    background-color: skyblue;
-    display: block;
-    padding: .5em;
+    color: black;
+    background-color: yellow;
+    display: inline-block;
+    padding-right: .5em;
+    border: 1px solid skyblue;
     border-radius: .5em;
   }
 

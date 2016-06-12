@@ -76,11 +76,11 @@
       leftCord.y = baby.y + baby.height/2;
       rightCord.x = baby.x + baby.width;
       rightCord.y = baby.y + baby.height/2;
-      if (Date.now() - time > 1000*60*3){
-      // if(true){
-        console.log("games over dude");
-        clearInterval(round);
-      }
+      // if (Date.now() - time > 1000*60*3){
+      // // if(true){
+      //   console.log("games over dude");
+      //   clearInterval(round);
+      // }
 
     }
 

@@ -1,160 +1,112 @@
-var app = angular.module('pregnancyCalendar', ['ui.bootstrap']) //,
+var app = angular.module('pregnancyCalendar', ['ui.bootstrap']) 
  .run(function($rootScope){
-  $rootScope.visitor = "Welcome Visitor: ";
-  $rootScope.conceptionDate = new Date();
-  // $rootScope.masterCalendar = true;
+  $rootScope.conceptionDate = new Date(); //todo: do I really need this?
  })
-app.controller('mainPregnancy', function($scope, $window) {
-  $scope.message = "message from the main controller"
-  
- 
- 
-});
- 
 
+ 
 app.controller('PregnancyCtrl', function ($scope, $rootScope, $timeout, $window) {
-  // $scope.dt = new Date();//$scope.setDate(2016, 01, 01)
-
-  
-    $window.GlobalWeeksElapsed = 20;
-
-  $scope.events = [
-    // { date: $scope.today, status: 'full' },
-    // { date: afterTomorrow, status: 'partially' }
-  ];
-
-  $rootScope.currentClick =  new Date(); //$scope.dt ||
+  $scope.events = [];
+  $window.GlobalWeeksElapsed = 20;
+  $rootScope.currentClick =  new Date();
   $rootScope.conceptionDate =  new Date();
   setDueDate();
 
   $scope.$watch('currentClick', function(){
-    // console.log("current events are " + $scope.events)
-    // canvas needs the number of weeks elapsed
-    $window.GlobalWeeksElapsed = (weeksElapsed($rootScope.currentClick) < 44) ? weeksElapsed($rootScope.currentClick) : 43;
-    console.table($scope.events);
-    // console.log($window.currentWeek);
+    // canvas needs the number of weeks elapsed - I inefficiently make the same calculation 3 times for most cases - worried about asynchrony issues
+    if (weeksElapsed($rootScope.currentClick) < 0){
+      $window.GlobalWeeksElapsed = 0; //canvas only displays weeks during pregnancy
+    }else if (weeksElapsed($rootScope.currentClick) < 44){
+      $window.GlobalWeeksElapsed = weeksElapsed($rootScope.currentClick);
+    }else {
+      $window.GlobalWeeksElapsed = 43 ;//canvas only displays weeks during pregnancy
+    }
+    // console.table($scope.events);
   })
 
   $scope.$watch('conceptionDate', function(){
-    console.log("new conceptionDate set " + $rootScope.conceptionDate);
     $scope.setPregnancyCalendar(weeksIntoYear());
     $rootScope.conceptionWeekday = $rootScope.conceptionWeekday;
     setDueDate();
-    console.log("watch on conceptionDate triggered");
+    // console.log("watch on conceptionDate triggered");
     $scope.events = [
       { date: $rootScope.conceptionDate, status: 'pregnancy-conception' },
       { date: $rootScope.dueDate, status: 'pregnancy-due-date' }
     ];
-    $timeout( function(){
-        // $rootScope.$apply();
+    $timeout( function(){ //experiment with ways using promises or other passed references to avoid timeout ?
+        // $rootScope.$apply(); todo: experiment more with or without broadcast > understand it better
         $scope.$broadcast();
-        console.log("timeout finished");
+        // console.log("timeout finished");
       }, 2000);
   })
 
-
-  // $scope.weeksIntoYear = function(){
  function weeksIntoYear(){
-  console.log('weeksIntoYear')
+    // how many weeks are we into the year? this will be passed to uib in reversed sign
     var timeIntoYear = $rootScope.conceptionDate - new Date($rootScope.conceptionDate.getFullYear(), 0 , 1);
     var weeksOffset = Math.floor(Math.round(timeIntoYear/(7*24*60*60*1000)));
     return weeksOffset;
   }
   
   function setDueDate(){
-    console.log("set due date called")
     $rootScope.dueDate = new Date($rootScope.conceptionDate.getTime() + 280*24*60*60*1000);
     return setDueDate;
   }
 
-  function weeksElapsed(currentDate){
-    // var currentWeek = 
-    return Math.floor((currentDate - $rootScope.conceptionDate)/(7*24*60*60*1000))
+  function weeksElapsed(clickedDate){
+    // how many weeks between conception date and current clicked date //added 10 seconds to allow for weird JS math anomaly
+    return Math.floor((clickedDate - $rootScope.conceptionDate + 10000)/(7*24*60*60*1000))
   }
 
-
+  //initiates the row of 11 months - which are each calendar objects
   $scope.setPregnancyCalendar = function(offset){
     $scope.pregnancyMonths = [];
     console.log(offset)
     var setterDate = new Date($rootScope.conceptionDate );
+    //prepare an area of dates at least but not more than one month apart ... other ways to do this
     for (var i = 0; i < 11; i++) {
       var monthSetter = {};
       (i === 0) ? monthSetter.dt = setterDate + 0 : monthSetter.dt = setterDate.setDate(32);
-
-      // $scope.events.push({ date: monthSetter.dt, status: "pastClicked" });
-      
       monthSetter.options = {
-        customClass: getDayClass, //'redbackground',
-        // minDate: new Date() - 1000*60*60*24*365*30,
+        customClass: getDayClass,
         showWeeks: true,
         conceptionOffsetWeeks: - offset ,
         masterCalendar: false,
-        shortcutPropagation: true
+        shortcutPropagation: true //this didn't do what I expected: ended  up commenting out keypress listeners
       }
 
       $scope.pregnancyMonths.push(monthSetter);
-
     }
   }
+
+  //call the pregnancy month initiation function
   $scope.setPregnancyCalendar();
 
 
-  function setClass(date){
-
-  }
-
-
+  //use today's date to set scope for uib-picker that will create standard picker in view
   $scope.today = function() {
     $scope.dt = new Date();
   };
   $scope.today();
 
-  $scope.clear = function() {
-    $scope.dt = null;
-  };
 
+  //this object creates the larger calendar used to pick a date from all dates - uses more standard uib-datepicker
   $scope.optionsConception = {
     customClass: getDayClass,
     minDate: new Date() - 1000*60*60*24*365*30,
-    // startingDay: (new Date() - 1000*60*60*24*365*10 ),//ten years ago ?
     // conceptionOffsetWeeks: 0,
     showWeeks: false,
     masterCalendar: true,
     shortcutPropagation: true
   };
 
-  // Disable weekend selection
-  function disabled(data) {
-    var date = data.date,
-      mode = data.mode;
-    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  }
-
-  // $scope.toggleMin = function() {
-  //   $scope.options.minDate = $scope.options.minDate ? null : new Date();
-  // };
-
-  // $scope.toggleMin();
-
+  //I'm not sure what this example was for... I believe that it might help use date-parser in uib library ?
   $scope.setDate = function(year, month, day) {
     $scope.dt = new Date(year, month, day);
   };
- //default is first of 2016
- // $scope.dt = $scope.setDate(2016, 01, 01)
-
-
-  var tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var afterTomorrow = new Date(tomorrow);
-  afterTomorrow.setDate(tomorrow.getDate() + 1);
-
-  //temporary
-  var redDate = new Date();
-
-
-
+ 
+  // this was a function in their demo - it ends up iterating through every displayed on current calendars
+  // is it ? vital to updating classes beyond the custom classes it sets
   function getDayClass(data) {
-    console.log("get day class ran")
+    // console.log("get day class ran")
     var date = data.date,
       mode = data.mode;
     if (mode === 'day') {
@@ -172,25 +124,3 @@ app.controller('PregnancyCtrl', function ($scope, $rootScope, $timeout, $window)
     return '';
   }
 });
-
-
-// app.directive("getPlayerInfo", function($compile) {
-//   return function(FOOscope, FOOelement, attrs){
- 
-//     // The template
-//     var playerList = "<ul><li ng-repeat='player in players'>{{player.name}}</li></ul>";
- 
-//     // Wrap it in a jqLite object
-//     var listElem = angular.element(playerList);
- 
-//     // Create the compile function which
-//     // generates are HTML
-//     var compileFunc = $compile(listElem);
- 
-//     // Process our content
-//     compileFunc(FOOscope);
- 
-//     // Update our jqLite object and add it to the
-//     // document
-//     FOOelement.append(listElem);
-//  }});
