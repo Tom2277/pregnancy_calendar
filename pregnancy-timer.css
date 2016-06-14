@@ -15,6 +15,46 @@
     max-width: 900px;
   }
 
+  .spacer-mobile{
+    height:1px;
+    display: inline-block;
+    position: relative;
+    /*background-color: purple;*/
+  }
+
+  @media(max-width: 800px){
+    canvas{
+      position: fixed;
+      z-index: 300;
+      left:0;
+      top: 0;
+      /*width: 100%;*/
+    }
+
+    .spacer-mobile{
+      height: 160px;
+      width: 100%;
+    }
+
+    .pregnancy-strip-container{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ad-pregnancy-strip-legend, .pregnancy-ad{
+      display: none;
+    }
+
+    .direction-box{
+      font-size: .75em;
+    }
+
+    .client-logo img{
+      max-width: 300px;
+
+    }
+  }
+
   .pregnancy-strip .btn-group-sm>.btn, .pregnancy-strip .btn-sm {
     padding: 1px 2px;
     font-size: .6em;
@@ -28,13 +68,13 @@
 
   .pregnancy-month-title{
     background-color: beige ;
-    color: black;
+    color: dimgrey;
     padding: .2em;
     border-radius: 3px;
    }
 
   .pregnancy-month.well{
-    color: blue;
+    color: #00aeef;/*//blue;*/
     background-color: pink;
     background-image: none;
   }
@@ -47,7 +87,8 @@
     background-color: purple;
     color: white;
     padding: 0px;
-    font-size: 1.3em;
+    font-size: 1em;
+    font-weight: bolder;
   }
 
   .pregnancy-strip .pregnancy-conception button span .btn-sm{
@@ -61,10 +102,11 @@
   }
 
   .pregnancy-strip .pregnancy-due-date button span{
-    background-color: yellow;
-    color: black;
+    background-color: navy; /*#FEFF10;*/  /*//yellow;*/
+    color: #feff10; /*black;*/
     padding: 0px;
-    font-size: 1.3em;
+    font-size: 1em;
+    font-weight: bolder;
   }
 
   .pregnancy-strip .pregnancy-due-date button span .btn-sm{
@@ -77,6 +119,10 @@
     margin: 0px;
   }
 
+  .pregnancy-strip .btn-default{
+    text-shadow: none;
+    color: dimgrey;
+  }
 
   .pregnancy-trimester-one{
     background-color: lightcyan;
@@ -85,7 +131,7 @@
     background-color: greenyellow;
   }
   .pregnancy-trimester-three{
-    background-color: limegreen;
+    background-color: #FEFF10;  /* #E3DEEC; *//*//limegreen;*/
   }
    .prenancy-none{
     background-color: transparent;
@@ -109,7 +155,7 @@
   }
 
   .conception-date-calendar .uib-daypicker{
-    background-color: yellow;
+    background-color: #FEFF10;  /*//yellow;*/
     border: 4px solid purple;
   }
 
@@ -121,7 +167,7 @@
   .conception-date-due-date{
     font-weight: bolder;
     color: black;
-    background-color: yellow;
+    background-color: #FEFF10; /*yellow;*/
     display: inline-block;
     padding-right: .5em;
     border: 1px solid skyblue;
@@ -132,7 +178,8 @@
     display: inline-block;
     /*padding: .5em;*/
     height: 180px;
-    width: 160px;
+    width: 150px;
+    padding: 25px 15px;
     /*background-color: pink;*/
     /*margin-bottom: 20px;*/
   }
@@ -152,8 +199,7 @@
     height: 10px;
     display: inline-block;
   }
-
-   .first-trimester span.color-key{
+  .first-trimester span.color-key{
     background-color: lightcyan;
   } 
   .first-trimester .weeks{
@@ -168,11 +214,11 @@
    } 
 
   .third-trimester span.color-key{
-    background-color: limegreen;
+    background-color: #FEFF10;
    } 
 
   .third-trimester .weeks{
-    background-color: limegreen;
+    background-color: #FEFF10;
   }
    
   .pregnancy-trimester-one .rightday{
@@ -183,9 +229,8 @@
     border: 1px solid dodgerblue;
   }
   .pregnancy-trimester-three .rightday{
-    border: 1px solid orange;
+    border: 1px solid dodgerblue;
   }
-
 
   .ad-pregnancy-strip-legend{
     display: inline-block;
@@ -205,6 +250,24 @@
     position: relative;
   }
 
+  .client-logo{
+    display: inline-block;
+    /*padding-left: 25px;*/
+    /*padding: 25px 10px;*/
+  }
+
+  .client-logo img{
+    vertical-align: bottom;
+    padding-bottom: 25px;
+    padding-left: 25px;  
+  }
+
+  .logo-text{
+    color:dimgrey;
+    padding-bottom: 1em;
+  }
+
+ 
 
 /*@media(min-width: 1560px){
   .main-pregnancy-application{

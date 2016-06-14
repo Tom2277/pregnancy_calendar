@@ -7,6 +7,8 @@
       display: none;
     }
     </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
 
@@ -14,6 +16,7 @@
 <div ng-controller="PregnancyCtrl" class="main-pregnancy-application" >
   <div class="canvas-controls" >
     <canvas id="canvas" width="900" height="400" ></canvas>
+    <div class="spacer-mobile">.</div>
     <div class="conception-calendar-container" style="display:inline-block;">
       <div class="conception-date-instructions">
         Estimate your conception date or the date of your last period below
@@ -22,7 +25,7 @@
         <uib-datepicker ng-model="dt" class="well well-sm conception-date-calendar" datepicker-options="optionsConception" template-url='uib/template/datepicker/datepicker.html'></uib-datepicker>
       </div>
       <div>Conception date chosen: </div>
-      <div class="conception-date-date">{{conceptionDate | date:'fullDate' }},</div>
+      <div class="conception-date-date">{{conceptionDate | date:'fullDate' }}</div>
       <div>Potential due-date: </div>
       <div class="conception-date-due-date">{{dueDate | date: 'fullDate'}}</div>
     </div>
@@ -62,8 +65,20 @@
       </tr>
     </table> 
 
+    <div class="client-logo" > 
+      <div class="logo-text">For prenatal care info and more, visit:</div>
+      <a href="https://womenshealth.gov" class="logolink">
+        <img src="womanshealthgov.png" alt="link to us gove healthcare site womenshealth.gov" target="_blank">
+      </a>
+      <div class="logo-text">
+        This site is NOT affiliated with 
+        <a href="https://womenshealth.gov" alt="women's care us goverment site">
+          womenshealth.gov
+        </a>
+      </div>
+    </div>
 
-    <table class="ad-pregnancy-strip-legend well">
+  <!--   <table class="ad-pregnancy-strip-legend well">
       <tr class="first-trimester">
        <td> 
         <div class="pregnancy-ad"> 
@@ -77,7 +92,7 @@
         </div>
        </td>
       </tr>
-    </table>       
+    </table>  -->      
     <!-- <div class="pregnancy-ad well">
       a word from our sponsors
     </div> -->

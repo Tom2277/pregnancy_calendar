@@ -1,34 +1,21 @@
     var    H = 400,
         W = 900,
         INTERVAL = 30,
-        backgroundImg = null,
         backgroundColor = 'beige';
 
     var GlobalWeeksElapsed = 0; //provide a default while loading
     var weeksElapsedKey = "week0";
     var stateChangeWatcher = GlobalWeeksElapsed + 999; 
-    // var rightPressed = false;
-    // var leftPressed = false;
-    // var upPressed = false;
-    // var downPressed = false;
-    // var spacePressed = false;
-    // var pPressed = false;
-    // var enterPressed = false;
     var baby = new Baby;
     var leftCord = new LeftCord;
     var rightCord = new RightCord;
     var trimesterInfo = new TrimesterInfo;
-    var trimesterDirections = new TrimesterDirections;
+    // var trimesterDirections = new TrimesterDirections;
     var magnifyingGlass = new MagnifyingGlass;
-    // var mud = new Mud;
-    // var mudFlying = false;
     // var gameOver = false;
     var time = Date.now();
     var babyLength = 27;
     var babyWeight = "8lbs3oz";
-    // var SoundEffects = {
-    //   phhft : new Audio("phhft.mp3")
-    // } //todo: try moving more sounds here.
 
 
     window.onload = function(){
@@ -48,7 +35,6 @@
     function update(){
       
       (GlobalWeeksElapsed) ? weeksElapsedKey = "week" + GlobalWeeksElapsed : "week10";
-
       // console.log(time)
       console.log(window.GlobalWeeksElapsed);
 
@@ -81,52 +67,48 @@
       //   console.log("games over dude");
       //   clearInterval(round);
       // }
-
     }
 
     function draw(context){
       clearCanvas(context);
       
-      // if (gameOver){ drawVictoryMessage(context);}
-      // mud.draw(context);
-      // deadMudManager.draw(context);
-      // clintonTargetManager.draw(context);
-      // trumpScoreBar.draw(context);
-      // clintonScoreBar.draw(context);
-      // drawDirections(context);
       drawBabyScale(context);
       leftCord.draw(context);
       rightCord.draw(context);
       baby.draw(context);
-      drawText(context);
+      drawLengthWeight(context);
       drawWelcome(context);
       trimesterInfo.draw(context);
-      trimesterDirections.draw(context);
+      drawBulletPoints(context);
+      // trimesterDirections.draw(context);
       if (GlobalWeeksElapsed < 10){magnifyingGlass.draw(context)}
     }
 
     function clearCanvas(context){
+      var backgroundImage= new Image()
+      backgroundImage.src = "johnOfficeStaff.png"
+      context.drawImage(backgroundImage , -70, -150, 1020, 604);
       context.beginPath();
       context.rect(0,0, W, H);
-      context.fillStyle = backgroundColor;
+      // context.fillStyle = "rgba(255,255,255, 0.10)" ;// white filter;
+      context.fillStyle = "rgba(0,0,0, 0.15)" ;//filter;
       context.fill();
-    }
 
+    }
 
     function drawBabyScale(context){
       this.image = new Image();
       this.image.src = "baby-scale.png";
-      context.drawImage(this.image, 478, 210, 380, 200); 
+      context.drawImage(this.image, 493, 210, 380, 200); 
     }
-    function drawDirections(context){
-      this.image = new Image();
-      this.image.src = "trimesterDirections.png";
-      context.drawImage(this.image, 12, 100); 
-    }
-
-     
+    // function drawDirections(context){
+    //   this.image = new Image();
+    //   this.image.src = "trimesterDirections.png";
+    //   context.drawImage(this.image, 12, 100); 
+    // }
+ 
     function Baby(){
-      this.x = 670;
+      this.x = 685;
       this.y = 230;
       this.vx = 0;
       this.vy = 0;
@@ -138,6 +120,19 @@
       }
     }
 
+    function MagnifyingGlass(){
+      this.x = 695;
+      this.y = 215;
+      // this.vx = 0;
+      // this.vy = 0;
+      this.draw = function(context){
+        // this.imgageUrl = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "thirdTrimesterDirections.png" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "secondTrimesterDirections.png" : "firstTrimesterDirections.png" ;
+        this.image= new Image();
+        this.image.src = "magnifying-glass.png";
+        context.drawImage(this.image, this.x, this.y, 100, 100)
+      }    
+    }
+
     function LeftCord() {
       this.x = 670;
       this.y = 230;
@@ -145,11 +140,11 @@
       this.color = "tan";
       this.draw = function(context){
         context.beginPath();
-        context.moveTo(555,70) //(slingLeftBracketX, slingLeftBracketY )//(330,400);
+        context.moveTo(575,75) //(slingLeftBracketX, slingLeftBracketY )//(330,400);
         context.lineTo(this.x, this.y);
         context.strokeStyle=this.color;
         // (this.x < 175) ? this.cordWidth = 5 : this.cordWidth = 9;
-        context.lineWidth= 2; //this.cordWidth;   
+        context.lineWidth= 3; //this.cordWidth;   
         context.stroke();
       }
     }
@@ -161,139 +156,172 @@
       this.color = "tan";
       this.draw = function(context){
         context.beginPath();
-        context.moveTo(780, 70);
+        context.moveTo(765, 75);
         context.lineTo(this.x, this.y);
         context.strokeStyle=this.color;
         // (this.x < 175) ? this.cordWidth = 7 : this.cordWidth = 10;
-        context.lineWidth= 2; //this.cordWidth;   
+        context.lineWidth= 3; //this.cordWidth;   
         context.stroke();
       }
     }
+    
+    // function drawText(context) {
+    //   // background rectangle to accentuate info
+    //   context.beginPath();
+    //   context.rect(560,10, 225, 80);
+    //   context.fillStyle = "silver" ;//"rgba(255,255,255, 0.30)" ;//backgroundColor;
+    //   context.fill();
+    //   //
+    //   context.font = "22px Arial";
+    //   context.fillStyle = "black";//"#0095DD";
+      
+    //   context.fillText( GlobalWeeksElapsed + ((GlobalWeeksElapsed === 1) ? " Week Completed" : " Weeks Completed" ), 565, 40);
+    //   context.fillText( "Length: " + babyLength + " inches", 573, 70);
+    //   context.fillText(babyWeight, 611, 370);
+    // }
 
+    // function drawWelcome(context) {
+    //   context.font = "35px Arial";
+    //   context.fillStyle =  "white"; //"limegreen";   
+    //   context.fillText("When You're Expecting!", 40, 40);
+    // } 
+
+    // function TrimesterInfo() {
+    //   this.x = -250;
+    //   this.y = 90;
+    //   this.vx = 0;
+    //   this.vy = 0;
+    //   this.message = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "The Third Trimester" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "The Second Trimester" : "The First Trimester" ;
+    //   this.draw = function(context){
+    //     drawDirectionsBackdrop(context);
+    //     context.font = "25px Arial";
+    //     context.fillStyle = "blue";//"#0095DD";
+    //     context.fillText(this.message, this.x, this.y);
+    //   }
+    // } 
+
+ 
+    // function drawBulletPoints(context) {
+    //   context.font = "18px Arial";
+    //   context.fillStyle = "white";//"#0095DD";
+    //   context.fillText("- some good, and better points", trimesterInfo.x, 125);//trimesterInfo.y + 25);
+    //   context.fillText("- bullet points, bullet point bullet points", trimesterInfo.x, 150);//trimesterInfo.y + 50);
+    //   context.fillText("- here, here, here, important important", trimesterInfo.x, 175);//trimesterInfo.y + 100);
+    //   context.fillText("- here, here and here, affirmative affirmative", trimesterInfo.x, 250);
+    //   context.fillText("- here, here and here, affirmative affirmative", trimesterInfo.x, 275);
+    //   // context.fillText("consult www.obs-professionals.org", trimesterInfo.x, trimesterInfo.y + 325);
+    //   context.fillText("consult www.obs-professionals.org", trimesterInfo.x, 350);
+    //   context.fillText("consult www.obs-professionals.org", trimesterInfo.x, 375);
+    // }
+
+    // function drawDirectionsBackdrop(context){
+    //   this.trimesterBackdropColor = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "limegreen" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "yellowgreen" : "lightcyan" ;
+    //   context.beginPath();
+    //   context.rect(trimesterInfo.x -5 , 60 , 230, 40); //trimesterInfo.y
+    //   context.fillStyle = this.trimesterBackdropColor;
+    //   context.fill();
+    // }
+
+    // function TrimesterDirections(){ //illustrator image of text
+    //   // this.x = -250;
+    //   // this.y = 95;
+    //   // this.vx = 0;
+    //   // this.vy = 0;
+    //   this.draw = function(context){
+    //     this.imgageUrl = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "thirdTrimesterDirections.png" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "secondTrimesterDirections.png" : "firstTrimesterDirections.png" ;
+    //     this.image= new Image();
+    //     this.image.src = this.imgageUrl;
+    //     context.drawImage(this.image, trimesterInfo.x, (trimesterInfo.y + 10));
+    //   }    
+    // }
+
+    
+    function drawLengthWeight(context) {
+      // backdrop for week and length
+      context.beginPath();
+      context.rect(520,10, 355, 80);
+      context.fillStyle = "white" ;
+      context.fill();
+      //
+      context.beginPath();
+      context.rect(585,345, 200, 40);
+      context.fillStyle = "white" ;
+      context.fill();
+      //
+      context.font = "35px Arial";
+      context.fillStyle =  "dimgrey"//"black";//"#0095DD";
       
-    function drawText(context) {
-      context.font = "22px Arial";
-      context.fillStyle = "black";//"#0095DD";
-      
-      context.fillText( GlobalWeeksElapsed + ((GlobalWeeksElapsed === 1) ? " Week Completed" : " Weeks Completed" ), 565, 40);
-      context.fillText( "Length: " + babyLength + " inches", 573, 70);
-      context.fillText(babyWeight, 611, 370);
+      context.fillText( GlobalWeeksElapsed + ((GlobalWeeksElapsed === 1) ? " Week Completed" : " Weeks Completed" ), 535, 40);
+      context.fillText( "Length: " + babyLength + " inches", 543, 70);
+      context.fillText(babyWeight, 590, 375);
     }
 
-
     function drawWelcome(context) {
-      context.font = "35px Arial";
-      context.fillStyle = "limegreen";   
+      context.font = "40px Arial";
+      context.fillStyle =  "white"; //"limegreen";   
       context.fillText("When You're Expecting!", 40, 40);
     } 
 
     function TrimesterInfo() {
       this.x = -250;
-      this.y = 70;
+      this.y = 90;
       this.vx = 0;
       this.vy = 0;
       this.message = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "The Third Trimester" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "The Second Trimester" : "The First Trimester" ;
       this.draw = function(context){
-        context.font = "25px Arial";
-        context.fillStyle = "blue";//"#0095DD";
+        drawTrimesterBackdrop(context);
+        context.font = "30px Arial";
+        context.fillStyle = "#00AEEF";//"#0095DD";
         context.fillText(this.message, this.x, this.y);
       }
     } 
-
-    function TrimesterDirections(){
-      // this.x = -250;
-      // this.y = 95;
-      // this.vx = 0;
-      // this.vy = 0;
-      this.draw = function(context){
-        this.imgageUrl = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "thirdTrimesterDirections.png" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "secondTrimesterDirections.png" : "firstTrimesterDirections.png" ;
-        this.image= new Image();
-        this.image.src = this.imgageUrl;
-        context.drawImage(this.image, trimesterInfo.x, (trimesterInfo.y + 10));
-      }    
+     function drawTrimesterBackdrop(context){
+      this.trimesterBackdropColor = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "#FEFF10" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "greenyellow" : "lightcyan" ;
+      context.beginPath();
+      context.rect(trimesterInfo.x -5 , 60 , 302, 40); //trimesterInfo.y
+      context.fillStyle = this.trimesterBackdropColor;
+      context.fill();
+    }
+ 
+    function drawBulletPoints(context){
+      //
+      // drawBulletPointsBackdrop(context);
+      //
+      context.font = "22px Arial";
+      context.fillStyle = "white";//"#0095DD";
+      context.fillText("- some good, and better points", trimesterInfo.x, 125);//trimesterInfo.y + 25);
+      context.fillText("- bullet points, bullet point bullet points", trimesterInfo.x, 150);//trimesterInfo.y + 50);
+      context.fillText("- here, here, here, important important", trimesterInfo.x, 175);//trimesterInfo.y + 100);
+      context.fillText("- here, here and here, affirmative affirmative", trimesterInfo.x, 250);
+      context.fillText("- here, here and here, affirmative affirmative", trimesterInfo.x, 275);
+      // context.fillText("consult www.obs-professionals.org", trimesterInfo.x, trimesterInfo.y + 325);
+      context.fillText("consult www.obs-professionals.org", trimesterInfo.x, 350);
+      context.fillText("consult www.obs-professionals.org", trimesterInfo.x, 375);
     }
 
-    function MagnifyingGlass(){
-      this.x = 680;
-      this.y = 210;
-      // this.vx = 0;
-      // this.vy = 0;
-      this.draw = function(context){
-        // this.imgageUrl = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "thirdTrimesterDirections.png" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "secondTrimesterDirections.png" : "firstTrimesterDirections.png" ;
-        this.image= new Image();
-        this.image.src = "magnifying-glass.png";
-        context.drawImage(this.image, this.x, this.y, 100, 100)
-      }    
+    function drawBulletPointsBackdrop(context){
+      this.bulletPointsBackdropColor = "rgba(0,0,0, 0.30)" ;
+      context.beginPath();
+      context.rect(trimesterInfo.x -5 , 100 , 470, 300); //trimesterInfo.y
+      context.fillStyle = this.bulletPointsBackdropColor;
+      context.fill();
     }
 
-      // function drawVictoryMessage(context) {
-      //   var message = "A tie creates political chaos!"
-      //     context.font = "30px Arial";
-      //     context.fillStyle = "black";//"#0095DD";
-      //     if (clintonVote > trumpVote){
-      //       message= "Hillary Clinton Wins"
-      //     }else if(trumpVote > clintonVote){ message = "Trump Wins"}
-      //     context.fillText(message, 300, 230);
-      //     context.fillText("Press Enter to Play Again", 300, 262);
-      //   }
+    // function TrimesterDirections(){ //illustrator image of text
+    //   // this.x = -250;
+    //   // this.y = 95;
+    //   // this.vx = 0;
+    //   // this.vy = 0;
+    //   this.draw = function(context){
+    //     this.imgageUrl = (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? "thirdTrimesterDirections.png" : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? "secondTrimesterDirections.png" : "firstTrimesterDirections.png" ;
+    //     this.image= new Image();
+    //     this.image.src = this.imgageUrl;
+    //     context.drawImage(this.image, trimesterInfo.x, (trimesterInfo.y + 10));
+    //   }    
+    // }
+    
 
-  
-      // document.addEventListener("keydown", keyDownHandler, false);
-      // document.addEventListener("keyup", keyUpHandler, false);
-      // document.addEventListener("keydown", function (e) { //disables scrolling
-      //   if([37,38,39,40,32].indexOf(e.keyCode) > -1){ e.preventDefault(); } 
-      // }, false);
-
-      // function keyDownHandler(e) {
-      //       if(e.keyCode == 39) {
-      //           rightPressed = true;
-      //       }
-      //       else if(e.keyCode == 37) {
-      //           leftPressed = true;
-      //       }
-      //       else if(e.keyCode == 38){
-      //           upPressed = true;
-      //       }
-      //       else if(e.keyCode == 40){
-      //           downPressed = true;
-      //       }
-      //       else if(e.keyCode == 32){
-      //           spacePressed = true;
-      //       }
-      //       else if(e.keyCode == 80){
-      //           pPressed = true;
-      //       }
-      //       else if(e.keyCode == 13){
-      //           enterPressed = true;
-      //       }
-      //   }
-
-      //   function keyUpHandler(e) {
-      //       if(e.keyCode == 39) {
-      //           rightPressed = false;
-      //       }
-      //       else if(e.keyCode == 37) {
-      //           leftPressed = false;
-      //       }
-      //       else if(e.keyCode == 38){
-      //           upPressed = false;
-      //       }
-      //       else if(e.keyCode == 40){
-      //           downPressed = false;
-      //       }
-      //       else if(e.keyCode == 32){
-      //           spacePressed = false;
-      //       }
-      //       else if(e.keyCode == 80){
-      //           pPressed = false;
-      //       }
-      //       else if(e.keyCode == 13){
-      //           enterPressed = false;
-      //       }
-      //   }
-
-
-
+// data about pregnancy      
 var byWeek ={
   "week0":  [  0.01, "0.01ounces"],
   "week1":  [  0.01, "0.01ounces"],
@@ -315,10 +343,10 @@ var byWeek ={
   "week17": [  5.12," 4.94ounces", 13, 140 ],
   "week18": [  5.59," 6.70ounces", 14.2, 190 ],
   "week19": [  6.02," 8.47ounces", 15.3, 240 ],
-  "week20": [  6.46, "10.58ounces",  16.4, 300 ],
-  "week21": [  10.1, "10.58ounces",  25.6, 300 ],
-  "week22": [  10.5, "12.70ounces",  26.7, 360 ],
-  "week23": [  10.9, "15.17ounces",  27.8, 430 ],
+  "week20": [  6.46, "10.6ounces",  16.4, 300 ],
+  "week21": [  10.1, "10.6ounces",  25.6, 300 ],
+  "week22": [  10.5, "12.7ounces",  26.7, 360 ],
+  "week23": [  10.9, "15.2ounces",  27.8, 430 ],
   "week24": [  11.4, "1.10pounds", 28.9, 501 ],
   "week25": [  11.8, "1.32pounds", 30, 600 ],
   "week26": [  13.6, "1.46pounds", 34.6, 660 ],
