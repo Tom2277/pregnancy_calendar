@@ -34,8 +34,7 @@
     }
 
     function update(){
-      
-      (GlobalWeeksElapsed) ? weeksElapsedKey = "week" + GlobalWeeksElapsed : "week10";
+      (GlobalWeeksElapsed) ? weeksElapsedKey = "week" + GlobalWeeksElapsed : weeksElapsedKey = "week0";
       (GlobalWeeksElapsed < 44 &&  GlobalWeeksElapsed >= 28 ) ? trimesterIndex = 2 : (GlobalWeeksElapsed > 12 && GlobalWeeksElapsed< 28) ? trimesterIndex = 1 : trimesterIndex = 0 ;
       // console.log(time)
       // hack to refresh trimester on change in UI outside of canvas
@@ -58,7 +57,7 @@
       baby.x = 670 - baby.width/2;
       baby.y = 230 - baby.height/2;
 
-      leftCord.x = baby.x
+      leftCord.x = baby.x;
       leftCord.y = baby.y + baby.height/2;
       rightCord.x = baby.x + baby.width;
       rightCord.y = baby.y + baby.height/2;
