@@ -102,8 +102,8 @@
   }
 
   .pregnancy-strip .pregnancy-due-date button span{
-    background-color: navy; /*#FEFF10;*/  /*//yellow;*/
-    color: #feff10; /*black;*/
+    background-color: yellow;  /*#FEFF10;*/  /*//yellow;*/
+    color: blue;
     padding: 0px;
     font-size: 1em;
     font-weight: bolder;
@@ -115,6 +115,7 @@
 
   .pregnancy-strip .pregnancy-due-date{
     /*border: 1px solid limegreen;*/
+    background-color: dodgerblue;
     padding: 0px;
     margin: 0px;
   }
@@ -172,6 +173,11 @@
     padding-right: .5em;
     border: 1px solid skyblue;
     border-radius: .5em;
+  }
+
+  .prenancy-timer-site-name{
+    font-size: 1.7em;
+    color: purple;
   }
 
   .pregnancy-strip-legend{
@@ -267,6 +273,10 @@
     padding-bottom: 1em;
   }
 
+  .pregnancy-directions-basic div{
+    font-size: 1.3em;
+    padding-bottom: 20px;
+  }
  
 
 /*@media(min-width: 1560px){
