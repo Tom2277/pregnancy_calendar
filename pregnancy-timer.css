@@ -278,6 +278,11 @@
     padding-bottom: 20px;
   }
  
+ footer.pregnancy-footer{
+  background-color: lightgrey;
+  margin-top: 5em;
+  text-align: center;
+ }
 
 /*@media(min-width: 1560px){
   .main-pregnancy-application{
