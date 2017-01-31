@@ -114,6 +114,13 @@
     font-size: 1em;
     font-weight: bolder;
   }
+  .uib-day.text-center.ng-scope.pregnancy-conception{
+    background-color: purple;
+  }
+
+  .conception-calendar-container .btn.btn-default.btn-sm.btn-info.active{
+    background-color: purple;
+  }
 
   .pregnancy-strip .pregnancy-conception button span .btn-sm{
     padding: 0px;
@@ -126,8 +133,8 @@
   }
 
   .pregnancy-strip .pregnancy-due-date button span{
-    background-color: yellow;  /*#FEFF10;*/  /*//yellow;*/
-    color: blue;
+    background-color: orange; /*orange; /* yellow;  /*#FEFF10;*/  /*//yellow;*/
+    color: white;
     padding: 0px;
     font-size: 1em;
     font-weight: bolder;
@@ -139,7 +146,7 @@
 
   .pregnancy-strip .pregnancy-due-date{
     /*border: 1px solid limegreen;*/
-    background-color: dodgerblue;
+    background-color: orange; /*dodgerblue;*/
     padding: 0px;
     margin: 0px;
   }
@@ -186,13 +193,18 @@
 
   .conception-date-date{
     font-weight: bolder;
-    color: purple;
+    color: white; /*black;*/
+    background-color: purple; /* #FEFF10; /*yellow;*/
+    display: inline-block;
+    padding-right: .5em;
+    border: 1px solid skyblue;
+    border-radius: .5em;
   } 
 
   .conception-date-due-date{
     font-weight: bolder;
-    color: black;
-    background-color: #FEFF10; /*yellow;*/
+    color: white; /*black;*/
+    background-color: orange; /* #FEFF10; /*yellow;*/
     display: inline-block;
     padding-right: .5em;
     border: 1px solid skyblue;

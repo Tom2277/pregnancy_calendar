@@ -103,7 +103,7 @@ app.controller('PregnancyCtrl', function ($scope, $rootScope, $timeout, $window)
     $scope.dt = new Date(year, month, day);
   };
  
-  // this was a function in their demo - it ends up iterating through every displayed on current calendars
+  // this was a function in the UIBoostrap demo - it ends up iterating through every date displayed on current calendars
   // is it ? vital to updating classes beyond the custom classes it sets
   function getDayClass(data) {
     // console.log("get day class ran")
