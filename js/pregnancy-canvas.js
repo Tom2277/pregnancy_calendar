@@ -88,7 +88,7 @@
       // context.drawImage(backgroundImage , -70, -150, 1020, 604);
       context.beginPath();
       context.rect(0,0, W, H);
-      context.fillStyle = '#87CEEB';//"rgba(0,0,0, 0.15)" ;//black filter for photo;
+      context.fillStyle = 'white';//'#e6eef1' //'#87CEEB';//"rgba(0,0,0, 0.15)" ;//black filter for photo;
       context.fill();
 
     }
@@ -201,7 +201,7 @@
     function drawBulletPoints(context){
       // drawBulletPointsBackdrop(context);
       context.font = "20px Arial";
-      context.fillStyle = "white";
+      context.fillStyle = 'orange';//'#fd9592'; //'black'; //"white";
       context.fillText(trimesterText.line1[trimesterIndex], trimesterInfo.x, 100);
       context.fillText(trimesterText.line2[trimesterIndex], trimesterInfo.x, 125);
       context.fillText(trimesterText.line3[trimesterIndex], trimesterInfo.x, 150);
@@ -214,7 +214,7 @@
       context.fillText(trimesterText.bullet5[trimesterIndex], trimesterInfo.x, 290);
       context.fillText(trimesterText.bullet6[trimesterIndex], trimesterInfo.x, 315);
       context.font = "20px Arial";
-      context.fillStyle = "white";
+      context.fillStyle = '#498fa9'; //"white";
       context.fillText(trimesterText.link1[0], trimesterInfo.x, 350);
       context.fillText(trimesterText.link2[0], trimesterInfo.x, 375);
     }

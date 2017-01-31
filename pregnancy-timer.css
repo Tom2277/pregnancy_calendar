@@ -13,6 +13,7 @@
   canvas{
     width: 100vw;
     max-width: 900px;
+    border: 1px solid dimgray;
   }
 
   .spacer-mobile{
@@ -20,6 +21,20 @@
     display: inline-block;
     position: relative;
     /*background-color: purple;*/
+  }
+
+  .ad-slot{
+    height: 180px;
+    display: inline-block;
+    width: 615px;
+    /*background-color: gray;*/
+    vertical-align: top;
+  }
+  .sell-branding{
+    text-align: center;
+    font-size: 3em;
+    padding: 1em;
+    font-style: oblique;
   }
 
   @media(max-width: 800px){
@@ -53,6 +68,15 @@
       max-width: 300px;
 
     }
+
+    .ad-slot{
+      height: 180px;
+      width: 340px;
+      /*background-color: beige;*/
+    }
+    .sell-branding{
+      font-size: 2em;
+    }
   }
 
   .pregnancy-strip .btn-group-sm>.btn, .pregnancy-strip .btn-sm {
@@ -67,20 +91,20 @@
   }
 
   .pregnancy-month-title{
-    background-color: beige ;
+    background-color: none; /*beige ;*/
     color: dimgrey;
     padding: .2em;
     border-radius: 3px;
    }
 
   .pregnancy-month.well{
-    color: #00aeef;/*//blue;*/
-    background-color: pink;
+    color: orange; /*#fd9592; #00aeef;//blue;*/
+    background-color: none; /*beige; #fff1f4; #d6c7ca; pink;*/
     background-image: none;
   }
 
   .pregnancy-month.well.boy-odd{
-    background-color: skyblue;
+    background-color: white; /*#e6eef1; #88969c;  skyblue;*/
   }
 
   .pregnancy-strip .pregnancy-conception button span{
@@ -157,7 +181,7 @@
 
   .conception-date-calendar .uib-daypicker{
     background-color: #FEFF10;  /*//yellow;*/
-    border: 4px solid purple;
+    border: 4px solid dimgray; /*purple;*/
   }
 
   .conception-date-date{
@@ -267,6 +291,7 @@
     padding-bottom: 25px;
     padding-left: 25px;  
   }
+ 
 
   .logo-text{
     color:dimgrey;
