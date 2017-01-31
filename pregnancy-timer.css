@@ -199,6 +199,7 @@
     padding-right: .5em;
     border: 1px solid skyblue;
     border-radius: .5em;
+    padding: 2px 5px;
   } 
 
   .conception-date-due-date{
@@ -209,6 +210,7 @@
     padding-right: .5em;
     border: 1px solid skyblue;
     border-radius: .5em;
+    padding: 2px 5px;
   }
 
   .prenancy-timer-site-name{
