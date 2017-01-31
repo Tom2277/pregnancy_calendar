@@ -178,7 +178,7 @@
     // } 
 
     function TrimesterInfo(){
-      this.x = -250;
+      this.x = -750;
       this.y = 50;
       this.vx = 0;
       this.vy = 0;
