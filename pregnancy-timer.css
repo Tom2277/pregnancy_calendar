@@ -1,352 +1,331 @@
-  .main-pregnancy-application{
-    max-width: 1300px; 
-    padding: 5px;
-    margin-left: auto; 
+.main-pregnancy-application {
+  max-width: 1300px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  /*display: inline-block;*/
+}
+
+.well {
+  margin-bottom: 0px;
+}
+
+canvas {
+  width: 100vw;
+  max-width: 900px;
+  /*border: 1px solid dimgray;*/
+}
+
+.spacer-mobile {
+  height: 1px;
+  display: inline-block;
+  position: relative;
+  /*background-color: purple;*/
+}
+
+.ad-slot {
+  height: 180px;
+  display: inline-block;
+  width: 615px;
+  /*background-color: gray;*/
+  vertical-align: top;
+}
+.sell-branding {
+  text-align: center;
+  font-size: 3em;
+  padding: 1em;
+  font-style: oblique;
+}
+
+@media (max-width: 800px) {
+  canvas {
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    /*width: 100%;*/
+  }
+
+  .spacer-mobile {
+    height: 160px;
+    width: 100%;
+  }
+
+  .pregnancy-strip-container {
+    margin-left: auto;
     margin-right: auto;
-    /*display: inline-block;*/
   }
 
-  .well{
-    margin-bottom: 0px;
+  .ad-pregnancy-strip-legend,
+  .pregnancy-ad {
+    display: none;
   }
 
-  canvas{
-    width: 100vw;
-    max-width: 900px;
-    /*border: 1px solid dimgray;*/
+  .direction-box {
+    font-size: 0.75em;
   }
 
-  .spacer-mobile{
-    height:1px;
-    display: inline-block;
-    position: relative;
-    /*background-color: purple;*/
-  }
-
-  .ad-slot{
-    height: 180px;
-    display: inline-block;
-    width: 615px;
-    /*background-color: gray;*/
-    vertical-align: top;
-  }
-  .sell-branding{
-    text-align: center;
-    font-size: 3em;
-    padding: 1em;
-    font-style: oblique;
-  }
-
-  @media(max-width: 800px){
-    canvas{
-      position: fixed;
-      z-index: 300;
-      left:0;
-      top: 0;
-      /*width: 100%;*/
-    }
-
-    .spacer-mobile{
-      height: 160px;
-      width: 100%;
-    }
-
-    .pregnancy-strip-container{
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .ad-pregnancy-strip-legend, .pregnancy-ad{
-      display: none;
-    }
-
-    .direction-box{
-      font-size: .75em;
-    }
-
-    .client-logo img{
-      max-width: 300px;
-
-    }
-
-    .ad-slot{
-      height: 180px;
-      width: 340px;
-      /*background-color: beige;*/
-    }
-    .sell-branding{
-      font-size: 2em;
-    }
-  }
-
-  .pregnancy-strip .btn-group-sm>.btn, .pregnancy-strip .btn-sm {
-    padding: 1px 2px;
-    font-size: .6em;
-    line-height: 1.5;
-    border-radius: 3px;
-  }
-
-  .text-muted{
-    color: #ccc;
-  }
-
-  .pregnancy-month-title{
-    background-color: none; /*beige ;*/
-    color: dimgrey;
-    padding: .2em;
-    border-radius: 3px;
-   }
-
-  .pregnancy-month.well{
-    color: orange; /*#fd9592; #00aeef;//blue;*/
-    background-color: none; /*beige; #fff1f4; #d6c7ca; pink;*/
-    background-image: none;
-  }
-
-  .pregnancy-month.well.boy-odd{
-    background-color: white; /*#e6eef1; #88969c;  skyblue;*/
-  }
-
-  .pregnancy-strip .pregnancy-conception button span{
-    background-color: purple;
-    color: white;
-    padding: 0px;
-    font-size: 1em;
-    font-weight: bolder;
-  }
-  .uib-day.text-center.ng-scope.pregnancy-conception{
-    background-color: purple;
-  }
-
-  .conception-calendar-container .btn.btn-default.btn-sm.btn-info.active{
-    background-color: purple;
-  }
-
-  .pregnancy-strip .pregnancy-conception button span .btn-sm{
-    padding: 0px;
-  }
-
-  .pregnancy-strip .pregnancy-conception{
-    /*border: 1px solid gold;*/
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .pregnancy-strip .pregnancy-due-date button span{
-    background-color: orange; /*orange; /* yellow;  /*#FEFF10;*/  /*//yellow;*/
-    color: white;
-    padding: 0px;
-    font-size: 1em;
-    font-weight: bolder;
-  }
-
-  .pregnancy-strip .pregnancy-due-date button span .btn-sm{
-    padding: 0px;
-  }
-
-  .pregnancy-strip .pregnancy-due-date{
-    /*border: 1px solid limegreen;*/
-    background-color: orange; /*dodgerblue;*/
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .pregnancy-strip .btn-default{
-    text-shadow: none;
-    color: dimgrey;
-  }
-
-  .pregnancy-trimester-one{
-    background-color: lightcyan;
-  }
-   .pregnancy-trimester-two{
-    background-color: greenyellow;
-  }
-  .pregnancy-trimester-three{
-    background-color: #FEFF10;  /* #E3DEEC; *//*//limegreen;*/
-  }
-   .prenancy-none{
-    background-color: transparent;
-  }
-
-  .conception-calendar-container{
-    display: inline-block;
-    position: relative;
-    padding: .5em 1.5em;
-  }
-
-  .conception-date-instructions{
+  .client-logo img {
     max-width: 300px;
-    display: block;
-    position: relative;
   }
 
-  .well.well-sm.conception-date-calendar{
-    margin-bottom: 0em;
-    color: blue;
-  }
-
-  .conception-date-calendar .uib-daypicker{
-    background-color: #FEFF10;  /*//yellow;*/
-    border: 4px solid dimgray; /*purple;*/
-  }
-
-  .conception-date-date{
-    font-weight: bolder;
-    color: white; /*black;*/
-    background-color: purple; /* #FEFF10; /*yellow;*/
-    display: inline-block;
-    padding-right: .5em;
-    border: 1px solid skyblue;
-    border-radius: .5em;
-    padding: 2px 5px;
-  } 
-
-  .conception-date-due-date{
-    font-weight: bolder;
-    color: white; /*black;*/
-    background-color: orange; /* #FEFF10; /*yellow;*/
-    display: inline-block;
-    padding-right: .5em;
-    border: 1px solid skyblue;
-    border-radius: .5em;
-    padding: 2px 5px;
-  }
-
-  .prenancy-timer-site-name{
-    font-size: 1.7em;
-    color: purple;
-  }
-
-  .pregnancy-strip-legend{
-    display: inline-block;
-    /*padding: .5em;*/
+  .ad-slot {
     height: 180px;
-    width: 150px;
-    padding: 25px 15px;
-    /*background-color: pink;*/
-    /*margin-bottom: 20px;*/
+    width: 340px;
+    /*background-color: beige;*/
   }
+  .sell-branding {
+    font-size: 2em;
+  }
+}
 
-  .first-trimester{
-    /*float: left;*/
-  } 
-  .second-trimester{
-    /*float: left;*/
-   }
-  .third-trimester{
-    /*float: left;*/
-  }
-  .color-key{
-    border-radius: 100%;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-  }
-  .first-trimester span.color-key{
-    background-color: lightcyan;
-  } 
-  .first-trimester .weeks{
-    background-color: lightcyan;
-  } 
+.pregnancy-strip .btn-group-sm > .btn,
+.pregnancy-strip .btn-sm {
+  padding: 1px 2px;
+  font-size: 0.6em;
+  line-height: 1.5;
+  border-radius: 3px;
+}
 
-  .second-trimester span.color-key {
-    background-color: greenyellow;
-   } 
-  .second-trimester .weeks {
-    background-color: greenyellow;
-   } 
+.text-muted {
+  color: #ccc;
+}
 
-  .third-trimester span.color-key{
-    background-color: #FEFF10;
-   } 
+.pregnancy-month-title {
+  background-color: none; /*beige ;*/
+  color: dimgrey;
+  padding: 0.2em;
+  border-radius: 3px;
+}
 
-  .third-trimester .weeks{
-    background-color: #FEFF10;
-  }
-   
-  .pregnancy-trimester-one .rightday{
-    border: 1px solid dodgerblue;
-   }  
-   
-  .pregnancy-trimester-two .rightday{
-    border: 1px solid dodgerblue;
-  }
-  .pregnancy-trimester-three .rightday{
-    border: 1px solid dodgerblue;
-  }
+.pregnancy-month.well {
+  color: orange; /*#fd9592; #00aeef;//blue;*/
+  background-color: none; /*beige; #fff1f4; #d6c7ca; pink;*/
+  background-image: none;
+}
 
-  .ad-pregnancy-strip-legend{
-    display: inline-block;
-    padding: 0em;
-    height: 180px;
-    width: 620px;
-    background:none;
-    position: relative;
-    /*margin-bottom: 20px;*/
-   }
-  .pregnancy-ad .well{
-    width: 620px;
-    display: inline-block;
-    margin-bottom: 0px;
-    height: 180px;
-    /*padding: inherit;*/
-    position: relative;
-  }
+.pregnancy-month.well.boy-odd {
+  background-color: white; /*#e6eef1; #88969c;  skyblue;*/
+}
 
-  .client-logo{
-    display: inline-block;
-    /*padding-left: 25px;*/
-    /*padding: 25px 10px;*/
-  }
+.pregnancy-strip .pregnancy-conception button span {
+  background-color: purple;
+  color: white;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bolder;
+}
+.uib-day.text-center.ng-scope.pregnancy-conception {
+  background-color: purple;
+}
 
-  .client-logo img{
-    vertical-align: bottom;
-    padding-bottom: 25px;
-    padding-left: 25px;  
-  }
- 
+.conception-calendar-container .btn.btn-default.btn-sm.btn-info.active {
+  background-color: purple;
+}
 
-  .logo-text{
-    color:dimgrey;
-    padding-bottom: 1em;
-  }
+.pregnancy-strip .pregnancy-conception button span .btn-sm {
+  padding: 0px;
+}
 
-  .pregnancy-directions-basic div{
-    font-size: 1.3em;
-    padding-bottom: 20px;
-  }
- 
- footer.pregnancy-footer{
+.pregnancy-strip .pregnancy-conception {
+  /*border: 1px solid gold;*/
+  padding: 0px;
+  margin: 0px;
+}
+
+.pregnancy-strip .pregnancy-due-date button span {
+  background-color: orange; /*orange; /* yellow;  /*#FEFF10;*/ /*//yellow;*/
+  color: white;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+.pregnancy-strip .pregnancy-due-date button span .btn-sm {
+  padding: 0px;
+}
+
+.pregnancy-strip .pregnancy-due-date {
+  /*border: 1px solid limegreen;*/
+  background-color: orange; /*dodgerblue;*/
+  padding: 0px;
+  margin: 0px;
+}
+
+.pregnancy-strip .btn-default {
+  text-shadow: none;
+  color: dimgrey;
+}
+
+.pregnancy-trimester-one {
+  background-color: lightcyan;
+}
+.pregnancy-trimester-two {
+  background-color: greenyellow;
+}
+.pregnancy-trimester-three {
+  background-color: #feff10; /* #E3DEEC; */ /*//limegreen;*/
+}
+.prenancy-none {
+  background-color: transparent;
+}
+
+.conception-calendar-container {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.5em;
+}
+
+.conception-date-instructions {
+  max-width: 300px;
+  display: block;
+  position: relative;
+}
+
+.well.well-sm.conception-date-calendar {
+  margin-bottom: 0em;
+  color: blue;
+}
+
+.conception-date-calendar .uib-daypicker {
+  background-color: #feff10; /*//yellow;*/
+  border: 4px solid dimgray; /*purple;*/
+}
+
+.conception-date-date {
+  font-weight: bolder;
+  color: white; /*black;*/
+  background-color: purple; /* #FEFF10; /*yellow;*/
+  display: inline-block;
+  padding-right: 0.5em;
+  border: 1px solid skyblue;
+  border-radius: 0.5em;
+  padding: 2px 5px;
+}
+
+.conception-date-due-date {
+  font-weight: bolder;
+  color: white; /*black;*/
+  background-color: orange; /* #FEFF10; /*yellow;*/
+  display: inline-block;
+  padding-right: 0.5em;
+  border: 1px solid skyblue;
+  border-radius: 0.5em;
+  padding: 2px 5px;
+}
+
+.prenancy-timer-site-name {
+  font-size: 1.7em;
+  color: purple;
+}
+
+.pregnancy-strip-legend {
+  display: inline-block;
+  /*padding: .5em;*/
+  height: 180px;
+  width: 150px;
+  padding: 25px 15px;
+  /*background-color: pink;*/
+  /*margin-bottom: 20px;*/
+}
+
+.first-trimester {
+  /*float: left;*/
+}
+.second-trimester {
+  /*float: left;*/
+}
+.third-trimester {
+  /*float: left;*/
+}
+.color-key {
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.first-trimester span.color-key {
+  background-color: lightcyan;
+}
+.first-trimester .weeks {
+  background-color: lightcyan;
+}
+
+.second-trimester span.color-key {
+  background-color: greenyellow;
+}
+.second-trimester .weeks {
+  background-color: greenyellow;
+}
+
+.third-trimester span.color-key {
+  background-color: #feff10;
+}
+
+.third-trimester .weeks {
+  background-color: #feff10;
+}
+
+.pregnancy-trimester-one .rightday {
+  border: 1px solid dodgerblue;
+}
+
+.pregnancy-trimester-two .rightday {
+  border: 1px solid dodgerblue;
+}
+.pregnancy-trimester-three .rightday {
+  border: 1px solid dodgerblue;
+}
+
+.ad-pregnancy-strip-legend {
+  display: inline-block;
+  padding: 0em;
+  height: 180px;
+  width: 620px;
+  background: none;
+  position: relative;
+  /*margin-bottom: 20px;*/
+}
+.pregnancy-ad .well {
+  width: 620px;
+  display: inline-block;
+  margin-bottom: 0px;
+  height: 180px;
+  /*padding: inherit;*/
+  position: relative;
+}
+
+.client-logo {
+  display: inline-block;
+  /*padding-left: 25px;*/
+  /*padding: 25px 10px;*/
+}
+
+.client-logo img {
+  vertical-align: bottom;
+  padding-bottom: 25px;
+  padding-left: 25px;
+}
+
+.logo-text {
+  color: dimgrey;
+  padding-bottom: 1em;
+}
+
+.pregnancy-directions-basic div {
+  font-size: 1.3em;
+  padding-bottom: 20px;
+}
+
+footer.pregnancy-footer {
   background-color: lightgrey;
   margin-top: 5em;
   text-align: center;
- }
+}
 
-/*@media(min-width: 1560px){
-  .main-pregnancy-application{
-    /*padding: 0px;*/
-   /* margin-left: 25px; 
-    margin-right: 5px;
-    display: inline-block;
-  }*/
-
-/*  .right-side-ad-bar{
-    min-height: 800px;
-    /*background-color: lightgrey;*/
-  /*  border: 1px dashed lightgrey;
-    display: inline-block;
-    float: right;
-    width:250px;
+@media (max-width: 1275px) {
+  .main-pregnancy-application {
+    text-align: center;
   }
+}
 
-}*/
-  
-
- /*      .btn-group-sm>.btn, .btn-sm {
-    padding: 3px 7px;
-    font-size: .8em;
-    line-height: 1.5;
-    border-radius: 3px;
-    background-color: pink;
-  }*/
