@@ -2,11 +2,11 @@
 
 - I have this code repository open for friendly reference reasons. (As well as out of gratitude for the open source libraries used!)
 
--  Read about my motivations and the state of the libraries in my blogpost: [A Pregnancy Calendar]](http://localhost:4000/websites/pregnancy-calendar.html)
+-  Read about my motivations and the state of the libraries in my blogpost: [A Pregnancy Calendar](http://localhost:4000/websites/pregnancy-calendar.html)
 
 - The site is deployed at (note the word 'timer' .. crowded url namespace)
 
-### [PregnancyTimer.com  a great pregnancy calendar]](http://pregnancytimer.com)
+### [PregnancyTimer.com  a great pregnancy calendar](http://pregnancytimer.com)
 
 ## Are you an obstetrician? 
 
